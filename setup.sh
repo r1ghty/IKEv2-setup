@@ -58,12 +58,12 @@ fi
 
 read -r -p "VPN username: " VPNUSERNAME
 while true; do
-read -r -s -p "VPN password (no quotes, please): " VPNPASSWORD
-echo
-read -r -s -p "Confirm VPN password: " VPNPASSWORD2
-echo
-[[ "${VPNPASSWORD}" = "${VPNPASSWORD2}" ]] && break
-echo "Passwords didn't match -- please try again"
+  read -r -s -p "VPN password (no quotes, please): " VPNPASSWORD
+  echo
+  read -r -s -p "Confirm VPN password: " VPNPASSWORD2
+  echo
+  [[ "${VPNPASSWORD}" = "${VPNPASSWORD2}" ]] && break
+  echo "Passwords didn't match -- please try again"
 done
 
 echo '
@@ -454,7 +454,7 @@ done
 apt-get install -y strongswan libstrongswan-standard-plugins libcharon-extra-plugins
 apt-get install -y libcharon-standard-plugins || true  # 17.04+ only
 
-ln -f -s /etc/ssl/certs/DST_Root_CA_X3.pem /etc/ipsec.d/cacerts/
+ln -f -s /etc/ssl/certs/ISRG_Root_X1.pem /etc/ipsec.d/cacerts/
 
 grep -Fq 'jawj/IKEv2-setup' /etc/ipsec.conf || echo "
 # https://github.com/jawj/IKEv2-setup
